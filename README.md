@@ -9,9 +9,8 @@ Role Variables
 `cif_no_deletekeys` add `ssh_deletekeys=False` to cloud-init config
 `cif_create_swap` should we add swap?
 ```cif_swap_options:
-  type: partition|lv|file
+  type: file
   size: 1024
-  vg: myvg #volumegroup?
   path: path for file
   ```
 Example Playbook
