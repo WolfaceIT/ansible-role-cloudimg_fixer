@@ -1,0 +1,24 @@
+- name: create swap file
+  command: "dd if=/dev/zero of={{ cif_swap_options.path }} bs=1M count={{ cif_swap_options.size }}"
+  args:
+    creates: "{{ cif_swap_options.path }}"
+  register: cif_swap_creation
+- name: Swap file permissions
+  file:
+    path: "{{ cif_swap_options.path }}"
+    state: file
+    owner: root
+    group: root
+    mode: 0600
+- name: Format swap file
+  command: "mkswap {{ cif_swap_options.path }}"
+  when: cif_swap_creation is changed
+- name: swap conf in fstab
+  mount:
+    src: "{{ cif_swap_options.path }}"
+    name: none
+    fstype: swap
+    opts: sw,nofail
+    dump: 0
+    passno: 0
+    state: present

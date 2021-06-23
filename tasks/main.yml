@@ -1,0 +1,17 @@
+---
+# tasks file for gilou.cloudimg-fixer
+- name: Do not delete ssh keys, dammitt!
+  copy:
+    content: "ssh_deletekeys: False"
+    dest: /etc/cloud/cloud.cfg.d/ssh_cif.cfg
+    mode: 0644
+    owner: root
+    group: root
+  when: cif_no_ssh_deletekeys
+  tags:
+    - ssh
+    - cloudinit
+- import_tasks: create_swap.yml
+  when: cif_create_swap
+  tags:
+    - swap

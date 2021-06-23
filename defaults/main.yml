@@ -1,0 +1,9 @@
+---
+# defaults file for gilou.cloudimg-fixer
+cif_no_ssh_deletekeys: true
+cif_create_swap: false
+cif_swap_options:
+  type: file
+  size: 1024
+  path: /swap
+
