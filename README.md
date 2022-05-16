@@ -12,6 +12,8 @@ Role Variables
   type: file
   size: 1024
   path: path for file
+cif_vim_editor: true
+cif_qemu_agent: true
   ```
 Example Playbook
 ----------------

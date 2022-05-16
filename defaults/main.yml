@@ -7,3 +7,4 @@ cif_swap_options:
   size: 1024
   path: /swap
 cif_vim_editor: true
+cif_qemu_agent: true

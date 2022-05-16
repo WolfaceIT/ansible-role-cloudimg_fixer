@@ -22,3 +22,17 @@
   when: cif_vim_editor
   tags:
     - alternatives
+- name: Ensure qemu-guest-agent is installed
+  package:
+    name: qemu-guest-agent
+    state: present
+  when: cif_qemu_agent
+  tags:
+    - qemu
+- name: activate and enable qemu-guest-agent
+  service:
+    name: qemu-guest-agent
+    state: started
+    enabled: true
+  tags:
+    - qemu
