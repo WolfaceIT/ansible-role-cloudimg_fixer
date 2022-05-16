@@ -6,4 +6,4 @@ cif_swap_options:
   type: file
   size: 1024
   path: /swap
-
+cif_vim_editor: true

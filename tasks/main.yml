@@ -15,3 +15,10 @@
   when: cif_create_swap
   tags:
     - swap
+- name: Set vim as default editor
+  community.general.alternatives:
+    name: vim
+    path: /usr/bin/vim.basic
+  when: cif_vim_editor
+  tags:
+    - alternatives

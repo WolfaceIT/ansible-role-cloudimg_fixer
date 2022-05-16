@@ -16,11 +16,19 @@ Role Variables
 Example Playbook
 ----------------
 
-Including an example of how to use your role (for instance, with variables passed in as parameters) is always nice for users too:
+Careful, this is hosted primarily on gitlab, so you'd need a requirements.yml like:
+```---
+roles:
+  - name: gilou.cloudimg_fixer
+    src: https://gitlab.com/wolface/ansible-roles/cloudimg_fixer.git
+```
 
+```
     - hosts: servers
+      become: true
       roles:
          - gilou.cloudimg_fixer
+```
 
 License
 -------
