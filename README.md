@@ -8,18 +8,20 @@ Role Variables
 
 `cif_no_deletekeys` add `ssh_deletekeys=False` to cloud-init config
 `cif_create_swap` should we add swap?
-```cif_swap_options:
+```
+cif_swap_options:
   type: file
   size: 1024
   path: path for file
 cif_vim_editor: true
 cif_qemu_agent: true
-  ```
+```
 Example Playbook
 ----------------
 
 Careful, this is hosted primarily on gitlab, so you'd need a requirements.yml like:
-```---
+```
+---
 roles:
   - name: gilou.cloudimg_fixer
     src: https://gitlab.com/wolface/ansible-roles/cloudimg_fixer.git
