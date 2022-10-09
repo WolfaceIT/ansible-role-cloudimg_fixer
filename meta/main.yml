@@ -1,4 +1,6 @@
 galaxy_info:
+  role_name: cloudimg_fixer
+  namespace: gilou
   author: Gilles Pietri
   description: Role to fix cloud images
   company: Wolface.IT
@@ -16,7 +18,7 @@ galaxy_info:
   # - CC-BY-4.0
   license: WTFPL-2.0
 
-  min_ansible_version: 2.8
+  min_ansible_version: "2.8"
 
   # If this a Container Enabled role, provide the minimum Ansible Container version.
   # min_ansible_container_version:
@@ -30,13 +32,14 @@ galaxy_info:
   platforms:
     - name: Debian
       versions:
-        - 9
-        - 10
-        - 11
+        - wheezy
+        - buster
+        - bullseye
     - name: Ubuntu
       versions:
-        - 18.04
-        - 20.04
+        - bionic
+        - focal
+        - jammy
 
   galaxy_tags:
     - cloud

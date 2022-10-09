@@ -1,7 +1,7 @@
 ---
 # tasks file for gilou.cloudimg-fixer
 - name: Do not delete ssh keys, dammitt!
-  copy:
+  ansible.builtin.copy:
     content: "ssh_deletekeys: False"
     dest: /etc/cloud/cloud.cfg.d/ssh_cif.cfg
     mode: 0644
@@ -23,14 +23,14 @@
   tags:
     - alternatives
 - name: Ensure qemu-guest-agent is installed
-  package:
+  ansible.builtin.package:
     name: qemu-guest-agent
     state: present
   when: cif_qemu_agent
   tags:
     - qemu
-- name: activate and enable qemu-guest-agent
-  service:
+- name: Activate and enable qemu-guest-agent
+  ansible.builtin.service:
     name: qemu-guest-agent
     state: started
     enabled: true

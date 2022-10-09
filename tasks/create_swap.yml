@@ -1,10 +1,10 @@
-- name: create swap file
-  command: "dd if=/dev/zero of={{ cif_swap_options.path }} bs=1M count={{ cif_swap_options.size }}"
+- name: Create swap file
+  ansible.builtin.command: "dd if=/dev/zero of={{ cif_swap_options.path }} bs=1M count={{ cif_swap_options.size }}"
   args:
     creates: "{{ cif_swap_options.path }}"
   register: cif_swap_creation
 - name: Swap file permissions
-  file:
+  ansible.builtin.file:
     path: "{{ cif_swap_options.path }}"
     state: file
     owner: root
@@ -12,10 +12,10 @@
     mode: 0600
   ignore_errors: "{{ ansible_check_mode }}"
 - name: Format swap file
-  command: "mkswap {{ cif_swap_options.path }}"
+  ansible.builtin.command: "mkswap {{ cif_swap_options.path }}"
   when: cif_swap_creation is changed
-- name: swap conf in fstab
-  mount:
+- name: Swap conf in fstab
+  ansible.builtin.mount:
     src: "{{ cif_swap_options.path }}"
     name: none
     fstype: swap
@@ -23,6 +23,6 @@
     dump: 0
     passno: 0
     state: present
-- name: activate swap
-  command: swapon -a
+- name: Activate swap
+  ansible.builtin.command: swapon -a
   when: cif_swap_creation is changed
