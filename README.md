@@ -37,7 +37,3 @@ License
 
 WTFPL v2
 
-Author Information
-------------------
-
-Gilou from Wolface.IT
