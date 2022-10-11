@@ -6,9 +6,10 @@ Try to avoid fuckery when using cloud img / cloudinit, especially on Proxmox
 Role Variables
 --------------
 
-`cif_no_deletekeys` add `ssh_deletekeys=False` to cloud-init config
+`cif_no_deletekeys` adds `ssh_deletekeys=False` to cloud-init config to avoid deletion of SSH Host keys
 `cif_create_swap` should we add swap?
 ```
+# Options for the created swap, assumed in a file
 cif_swap_options:
   type: file
   size: 1024
@@ -19,7 +20,7 @@ cif_qemu_agent: true
 Example Playbook
 ----------------
 
-Careful, this is hosted primarily on gitlab, so you'd need a requirements.yml like:
+Careful, though this role was imported in Galaxy/GitHub, this is hosted primarily on gitlab, so you'd need a requirements.yml like:
 ```
 ---
 roles:
